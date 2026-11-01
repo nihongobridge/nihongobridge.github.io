@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" as="image" href="img/hero.jpg">
 <title>Nihongo Bridge — Japanese localization for indie games and apps</title>
 <meta name="description" content="Native Japanese localization for indie games and apps. Free Japanese Steam store page or App Store listing, then full localization at USD 0.05 per word.">
 <meta property="og:title" content="Nihongo Bridge — Japanese localization for indie games and apps">
@@ -154,6 +155,30 @@ section + section { border-top: 1px solid var(--line); }
 footer { padding-block: 2rem; font-size: .88rem; color: var(--ink-muted); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem; }
 
+/* imagery & corporate layout */
+.hero { background: linear-gradient(90deg, rgba(8,18,44,.94) 0%, rgba(8,18,44,.84) 48%, rgba(8,18,44,.45) 100%), url(img/hero.jpg) center/cover no-repeat; color: #fff; border-bottom: 0; }
+.hero h1 { color: #fff; }
+.hero .lead { color: #dbe7ff; }
+.hero .eyebrow { color: #93c5fd; }
+.hero .fine { color: #c7d7fb; }
+.hero .btn.secondary { color: #fff; border-color: rgba(255,255,255,.7); }
+.hero .btn.secondary:hover { background: rgba(255,255,255,.12); }
+.trust { background: var(--paper-2); border-bottom: 1px solid var(--line); }
+.trust .wrap { display: flex; flex-wrap: wrap; gap: .5rem 2.2rem; padding-block: .9rem; font-size: .9rem; color: var(--ink-soft); font-weight: 500; }
+.trust span::before { content: "\2713"; color: var(--accent-ink); margin-right: .45rem; font-weight: 700; }
+.split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: center; margin-top: 2.5rem; }
+.split.rev { grid-template-columns: .9fr 1.1fr; }
+.split .stats { margin-top: 0; grid-template-columns: 1fr 1fr; }
+@media (max-width: 800px) { .split, .split.rev { grid-template-columns: 1fr; } .split .stats { grid-template-columns: 1fr; } }
+.figure { aspect-ratio: 3 / 2; overflow: hidden; border-radius: 12px; box-shadow: 0 12px 36px rgba(29,78,216,.12); background: var(--paper-2); }
+.figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.figure.wide { aspect-ratio: 21 / 8; margin-top: 2.5rem; }
+.intro p { color: var(--ink-soft); }
+.intro p + p { margin-top: 1rem; }
+.contact { background: linear-gradient(135deg, rgba(8,24,72,.93), rgba(29,78,216,.86)), url(img/contact.jpg) center/cover no-repeat; }
+footer { border-top: 1px solid var(--line); }
+footer a { color: var(--ink-soft); }
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 </style>
 </head>
@@ -198,16 +223,29 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   </div>
 </section>
 
+<div class="trust" aria-label="At a glance">
+  <div class="wrap">
+    <span>Based in Japan</span>
+    <span>Written by native Japanese speakers</span>
+    <span>Reply within 48 hours</span>
+    <span>Fixed quotes, no minimum fee</span>
+    <span>Invoiced via PayPal</span>
+  </div>
+</div>
+
 <section id="why">
   <div class="wrap">
     <p class="eyebrow">Why Japanese</p>
     <h2>A small market on paper. A big one in practice.</h2>
     <p class="lead" style="margin-top:1rem">Japanese players buy less often than you'd think — and spend more than almost anyone when they do. What decides whether they buy is the text.</p>
+    <div class="split rev">
+      <div class="figure"><img src="img/why.jpg" alt="A Tokyo street at night, neon signs blurred in the rain" loading="lazy" width="1200" height="800"></div>
     <div class="stats">
       <div class="stat"><b>Top 3</b><span>Japan is one of the three largest App Store markets in the world by revenue.</span></div>
       <div class="stat"><b>Highest-spending</b><span>Japanese Steam players are among the highest-spending players per capita.</span></div>
       <div class="stat"><b>Native or nothing</b><span>Japanese players strongly prefer native-quality Japanese. Translated-sounding text is a red flag that hurts wishlists, reviews and sales.</span></div>
       <div class="stat"><b>Store page first</b><span>A Japanese store page alone usually lifts wishlists from Japan noticeably — before a single line of the game is localized.</span></div>
+    </div>
     </div>
   </div>
 </section>
@@ -216,6 +254,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap">
     <p class="eyebrow">How it works</p>
     <h2>Start free. Pay only if you want more.</h2>
+    <div class="split">
+      <div class="intro">
+        <p>Most developers start with the free Japanese store page and never pay a cent. That is fine with us: a good store page is the best introduction to our work.</p>
+        <p>If you want more, you get a fixed quote before any work begins, a free sample so you can judge the quality first, and the finished files back in the same format you sent.</p>
+      </div>
+      <div class="figure"><img src="img/how.jpg" alt="A tidy desk with a laptop, an open notebook and a cup of green tea" loading="lazy" width="1200" height="800"></div>
+    </div>
     <div class="grid grid-3 steps">
       <div class="step">
         <h3>Free Japanese store page <span class="free">Free</span></h3>
@@ -237,6 +282,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap">
     <p class="eyebrow">What we localize</p>
     <h2>Everything a Japanese player reads before and after they buy.</h2>
+    <div class="figure wide"><img src="img/services.jpg" alt="A game controller and a smartphone on a navy surface" loading="lazy" width="1200" height="800"></div>
     <div class="grid grid-2 services">
       <div class="service"><h3>Steam store pages</h3><p>Restructured the way Japanese store pages flow — a one-line summary first, feature sections, the wishlist call-to-action at the end — not just translated.</p></div>
       <div class="service"><h3>In-game text</h3><p>Dialogue, items, UI, tutorials, achievements. Humor and puns are rewritten so they land in Japanese instead of dying in translation.</p></div>
@@ -307,15 +353,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <div class="wrap">
     <p class="eyebrow">About</p>
     <h2>Who we are</h2>
-    <div class="grid grid-2">
-      <div>
-        <p>Nihongo Bridge is a small localization studio based in Japan, run by a native Japanese speaker. We work with independent developers who want Japanese players to feel that the game was made for them.</p>
-        <p>We keep the studio small on purpose. Every line that goes out is read, and usually rewritten, by the same native speaker — which is why the Japanese reads like it was written in Japanese, and why we can answer your email the same day.</p>
+    <div class="split">
+      <div class="intro">
+        <p>Nihongo Bridge is a localization studio based in Japan. Our Japanese is written by native speakers, not translated by software and lightly checked, for independent developers who want Japanese players to feel that the game was made for them.</p>
+        <p>We keep the studio deliberately small. Every line that goes out is read, and usually rewritten, by a native speaker. That is why the Japanese reads like it was written in Japanese, and why you get answers from a person, usually the same day.</p>
       </div>
+      <div class="figure"><img src="img/about.jpg" alt="A quiet office in Japan at dusk overlooking the city" loading="lazy" width="1200" height="800"></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:1.5rem">
       <div class="how">
         <h3>How we work</h3>
         <p>We use AI tools for a first draft, then every line is reviewed and rewritten by a native speaker. That is how we keep prices low without the translated-sounding Japanese that machine translation alone produces.</p>
         <p style="margin-top:.8rem">We say this openly because developers deserve to know how their text is made.</p>
+      </div>
+      <div class="how">
+        <h3>What you can expect</h3>
+        <p>A reply from a person within 48 hours. A fixed quote and delivery date before any work starts. Files back in the format you sent. And if something reads wrong after release, we fix it at no charge.</p>
       </div>
     </div>
   </div>
@@ -345,7 +398,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a class="addr" id="mail-link" href="mailto:nihongobridge.jp@gmail.com?subject=Free%20Japanese%20store%20page">nihongobridge.jp@gmail.com</a>
       <button class="copy" id="copy-btn" type="button">Copy address</button>
     </div>
-    <p class="fine">Your contact will be Takuto, the native speaker who writes your Japanese.</p>
+    <p class="fine">A member of our team will reply personally within 48 hours. No automated responses, no sales calls.</p>
   </div>
 </section>
 
@@ -353,7 +406,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Nihongo Bridge · Japan</span>
+    <span>© 2026 Nihongo Bridge · Japan · <a href="mailto:nihongobridge.jp@gmail.com">nihongobridge.jp@gmail.com</a></span>
     <span>Japanese localization for indie games and apps</span>
   </div>
 </footer>
