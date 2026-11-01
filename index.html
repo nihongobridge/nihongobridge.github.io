@@ -11,20 +11,20 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231f2a44'/%3E%3Cpath d='M14 40c6-10 12-10 18 0s12 10 18 0' fill='none' stroke='%23e8c268' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='5' fill='%23e8c268'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap">
 <style>
 :root {
-  --ink: #1f2a44;
-  --ink-soft: #4a5570;
-  --ink-muted: #7a8398;
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --ink-muted: #7b8698;
   --paper: #ffffff;
-  --paper-2: #f5f6f9;
-  --line: #e2e5ec;
-  --accent: #b8902e;
-  --accent-ink: #8a6a1c;
-  --accent-soft: #fbf4e3;
-  --ok: #2e7d5b;
-  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --paper-2: #f3f6fb;
+  --line: #dfe6f1;
+  --accent: #2563eb;
+  --accent-ink: #1d4ed8;
+  --accent-soft: #eaf1ff;
+  --ok: #0e8a5f;
+  --font-display: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-body: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-jp: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
   --max: 1080px;
@@ -33,7 +33,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
 a { color: var(--accent-ink); }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -0.025em; text-wrap: balance; }
 h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
 h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
 h3 { font-size: 1.15rem; font-family: var(--font-body); font-weight: 600; }
@@ -46,10 +46,10 @@ section + section { border-top: 1px solid var(--line); }
 .grid { display: grid; gap: 1.5rem; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
-.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--ink); color: #fff; text-decoration: none; padding: .95rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: background .15s; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-ink); color: #fff; text-decoration: none; padding: .95rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: background .15s; }
 .btn:hover { background: #2c3a5e; }
-.btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
-.btn.secondary:hover { background: var(--paper-2); }
+.btn.secondary { background: transparent; color: var(--accent-ink); border: 1.5px solid var(--accent-ink); }
+.btn.secondary:hover { background: var(--accent-soft); }
 .btn:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 /* header */
@@ -64,14 +64,14 @@ section + section { border-top: 1px solid var(--line); }
 @media (max-width: 760px) { .nav { display: none; } }
 
 /* hero */
-.hero { padding-block: clamp(4rem, 10vw, 7.5rem); background: linear-gradient(180deg, var(--paper-2), var(--paper)); border-bottom: 1px solid var(--line); }
+.hero { padding-block: clamp(4rem, 10vw, 7.5rem); background: radial-gradient(900px 420px at 85% 0%, #dbe7ff 0%, rgba(219,231,255,0) 70%), linear-gradient(180deg, #f3f7ff, var(--paper)); border-bottom: 1px solid var(--line); }
 .hero .wrap { display: grid; gap: 2.5rem; grid-template-columns: 1.15fr .85fr; align-items: center; }
 @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
 .hero h1 { margin-bottom: 1.2rem; }
 .hero .lead { margin-bottom: 2rem; }
 .hero .cta { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
 .hero .fine { font-size: .9rem; color: var(--ink-muted); margin-top: 1rem; }
-.hero-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 1.4rem; box-shadow: 0 10px 30px rgba(31,42,68,.06); }
+.hero-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 1.4rem; box-shadow: 0 12px 36px rgba(29,78,216,.10); }
 .hero-card .tag { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; margin-bottom: .6rem; }
 .hero-card .en { font-size: .95rem; color: var(--ink-soft); border-left: 3px solid var(--line); padding-left: .9rem; margin-bottom: 1rem; }
 .hero-card .jp { font-family: var(--font-jp); font-size: 1rem; line-height: 1.9; border-left: 3px solid var(--accent); padding-left: .9rem; }
@@ -86,7 +86,7 @@ section + section { border-top: 1px solid var(--line); }
 /* steps */
 .steps { counter-reset: step; margin-top: 2.5rem; }
 .step { background: var(--paper-2); border-radius: 12px; padding: 1.6rem; position: relative; }
-.step::before { counter-increment: step; content: counter(step); display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 600; font-size: .95rem; margin-bottom: 1rem; }
+.step::before { counter-increment: step; content: counter(step); display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent-ink); color: #fff; font-weight: 600; font-size: .95rem; margin-bottom: 1rem; }
 .step h3 { margin-bottom: .5rem; }
 .step p { color: var(--ink-soft); font-size: .98rem; }
 .step .free { display: inline-block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ok); font-weight: 600; margin-left: .5rem; vertical-align: middle; }
@@ -140,16 +140,16 @@ section + section { border-top: 1px solid var(--line); }
 .faq details p { padding-bottom: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
 
 /* contact */
-.contact { background: var(--ink); color: #fff; }
-.contact .eyebrow { color: var(--accent); }
+.contact { background: linear-gradient(135deg, #0b1f4b 0%, #1d4ed8 100%); color: #fff; }
+.contact .eyebrow { color: #bfdbfe; }
 .contact h2 { color: #fff; }
-.contact .lead { color: #c9d0e0; }
+.contact .lead { color: #dbe7ff; }
 .contact .mail { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 .contact .addr { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.9rem); color: #fff; text-decoration: none; word-break: break-all; }
-.contact .addr:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.contact .addr:hover { text-decoration: underline; text-decoration-color: #bfdbfe; }
 .contact .copy { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.5); border-radius: 8px; padding: .5rem .9rem; font: inherit; font-size: .9rem; cursor: pointer; }
 .contact .copy:hover { border-color: #fff; }
-.contact .fine { margin-top: 1.5rem; color: #aab3c8; font-size: .92rem; }
+.contact .fine { margin-top: 1.5rem; color: #c7d7fb; font-size: .92rem; }
 
 footer { padding-block: 2rem; font-size: .88rem; color: var(--ink-muted); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem; }
@@ -162,7 +162,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Nihongo Bridge home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#1f2a44"/><path d="M14 40c6-10 12-10 18 0s12 10 18 0" fill="none" stroke="#e8c268" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="22" r="5" fill="#e8c268"/></svg>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#1d4ed8"/><path d="M14 40c6-10 12-10 18 0s12 10 18 0" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="22" r="5" fill="#bfdbfe"/></svg>
       Nihongo Bridge
     </a>
     <nav class="nav" aria-label="Sections">
