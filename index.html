@@ -1,464 +1,596 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preload" as="image" href="img/hero.jpg">
 <title>Nihongo Bridge — Japanese localization for indie games and apps</title>
-<meta name="description" content="Native Japanese localization for indie games and apps. Free Japanese Steam store page or App Store listing, then full localization at USD 0.05 per word.">
+<meta name="description" content="Native Japanese localization for indie games and apps. Get your Japanese Steam store page or App Store listing free, then decide. Reply within 48 hours.">
 <meta property="og:title" content="Nihongo Bridge — Japanese localization for indie games and apps">
-<meta property="og:description" content="Store pages, in-game text and App Store listings, written the way Japanese players actually read. Start with a free Japanese store page.">
+<meta property="og:description" content="Get your Japanese Steam store page or App Store listing free, then decide. Native Japanese, reply within 48 hours.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nihongobridge.github.io/">
-<meta property="og:image" content="https://nihongobridge.github.io/img/hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://nihongobridge.github.io/img/night.jpg">
 <link rel="canonical" href="https://nihongobridge.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231d4ed8'/%3E%3Cpath d='M14 40c6-10 12-10 18 0s12 10 18 0' fill='none' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='5' fill='%23bfdbfe'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231d4ed8'/%3E%3Cpath d='M14 40c6-10 12-10 18 0s12 10 18 0' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='5' fill='%23bfdbfe'/%3E%3C/svg%3E">
 <style>
-:root {
-  --ink: #0f172a;
-  --ink-soft: #475569;
-  --ink-muted: #7b8698;
-  --paper: #ffffff;
-  --paper-2: #f3f6fb;
-  --line: #dfe6f1;
-  --accent: #2563eb;
-  --accent-ink: #1d4ed8;
-  --accent-soft: #eaf1ff;
-  --ok: #0e8a5f;
-  --font-display: "Manrope", "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-body: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-jp: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-  --max: 1080px;
+:root{
+  --bg:#0c1528; --bg-2:#111d35; --panel:#16243f; --line:rgba(170,195,255,.11); --line-2:rgba(170,195,255,.20);
+  --ink:#f3f6fc; --soft:#b8c3d8; --mute:#7f8ca6;
+  --blue:#3b82f6; --blue-2:#60a5fa; --glow:rgba(59,130,246,.45);
+  --display:"Plus Jakarta Sans","Manrope","Inter",system-ui,sans-serif; --ui:"Manrope","Inter",system-ui,sans-serif; --body:"Inter","Noto Sans JP",system-ui,sans-serif;
+  --jp:"Zen Kaku Gothic New","Noto Sans JP",sans-serif; --jp-serif:"Noto Serif JP",serif;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
-a { color: var(--accent-ink); }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.1; margin: 0; letter-spacing: -0.03em; text-wrap: balance; }
-h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
-h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
-h3 { font-size: 1.15rem; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
-p { margin: 0; }
-.wrap { max-width: var(--max); margin-inline: auto; padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right)); }
-section { padding-block: clamp(4rem, 9vw, 7.5rem); }
-section + section { border-top: 1px solid var(--line); }
-#why { background: linear-gradient(180deg, #ffffff, #f3f7ff); }
-#services { background: linear-gradient(180deg, #f3f7ff, #ffffff); }
-#about { background: linear-gradient(180deg, #ffffff, #eef4ff); }
-.eyebrow { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: .7rem; }
-.eyebrow::before { content: ''; width: 2.2rem; height: 2px; background: var(--accent); border-radius: 2px; }
-.hero .eyebrow::before { background: #a8c8ff; }
-.contact .eyebrow::before { background: #bfdbfe; }
-section > .wrap > h2 { position: relative; }
-.btn { font-family: var(--font-display); letter-spacing: -0.01em; }
-.lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 60ch; }
-.grid { display: grid; gap: 1.5rem; }
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
-.btn { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-ink); color: #fff; text-decoration: none; padding: .95rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: background .15s; }
-.btn:hover { background: #2c3a5e; }
-.btn.secondary { background: transparent; color: var(--accent-ink); border: 1.5px solid var(--accent-ink); }
-.btn.secondary:hover { background: var(--accent-soft); }
-.btn:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 48px);margin-inline:auto}
+.jp{font-family:var(--jp)}
+::selection{background:var(--blue);color:#fff}
 
-/* header */
-.top { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(223,230,241,.8); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
-.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
-.brand svg { width: 30px; height: 30px; }
-.nav { display: flex; gap: 1.4rem; font-size: .95rem; }
-.nav a { color: var(--ink-soft); text-decoration: none; }
-.nav a:hover { color: var(--ink); }
-.top .btn { padding: .6rem 1rem; font-size: .9rem; }
-@media (max-width: 760px) { .nav { display: none; } .top .btn { padding: .5rem .8rem; font-size: .82rem; white-space: nowrap; } .brand { font-size: 1.05rem; } }
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(12,21,40,.72);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 18px/1 var(--ui);letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--soft)}
+.nav ul a{text-decoration:none;transition:color .2s}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;font:600 15px/1 var(--ui);text-decoration:none;transition:transform .2s,box-shadow .25s,background .2s;cursor:pointer;border:0}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 0 0 0 var(--glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px -6px var(--glow)}
+.btn-ghost{border:1px solid var(--line-2);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--blue-2);color:#fff}
+.btn-sm{padding:10px 18px;font-size:14px}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(4px)}
 
-/* hero */
-.hero { padding-block: clamp(4rem, 10vw, 7.5rem); background: radial-gradient(900px 420px at 85% 0%, #dbe7ff 0%, rgba(219,231,255,0) 70%), linear-gradient(180deg, #f3f7ff, var(--paper)); border-bottom: 1px solid var(--line); }
-.hero .wrap { display: grid; gap: 2.5rem; grid-template-columns: 1.15fr .85fr; align-items: center; }
-@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
-.hero h1 { margin-bottom: 1.2rem; }
-.hero .lead { margin-bottom: 2rem; }
-.hero .cta { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
-.hero .fine { font-size: .9rem; color: var(--ink-muted); margin-top: 1rem; }
-.hero-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 1.4rem; box-shadow: 0 12px 36px rgba(29,78,216,.10); }
-.hero-card .tag { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; margin-bottom: .6rem; }
-.hero-card .en { font-size: .95rem; color: var(--ink-soft); border-left: 3px solid var(--line); padding-left: .9rem; margin-bottom: 1rem; }
-.hero-card .jp { font-family: var(--font-jp); font-size: 1rem; line-height: 1.9; border-left: 3px solid var(--accent); padding-left: .9rem; }
-.hero-card .jp b { font-weight: 500; color: var(--accent-ink); }
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:-4%;background:url(img/night.jpg) center/cover no-repeat;z-index:-2;animation:kenburns 24s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 50% at 75% 30%,rgba(59,130,246,.18),transparent 70%),
+    linear-gradient(180deg,rgba(12,21,40,.35) 0%,rgba(12,21,40,.15) 40%,rgba(12,21,40,.75) 82%,var(--bg) 100%),
+    linear-gradient(90deg,rgba(12,21,40,.55) 0%,rgba(12,21,40,0) 60%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.18;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:120px 120px;
+  mask-image:linear-gradient(180deg,transparent,black 40%,transparent)}
+.hero-inner{padding:140px 0 90px}
+.hero-card{display:inline-block;max-width:780px;padding:clamp(26px,3.4vw,46px);border:1px solid rgba(170,200,255,.28);border-radius:26px;background:linear-gradient(160deg,rgba(17,29,53,.72),rgba(12,21,40,.45));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 90px -30px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08)}
+.eyebrow{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--blue-2);margin:0 0 26px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--blue-2)}
+.hero h1{font:800 clamp(38px,6vw,88px)/1.02 var(--display);letter-spacing:-.03em;margin:0;text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.morph{display:grid;color:var(--blue-2);text-shadow:0 0 34px var(--glow)}
+.morph > span{grid-area:1/1;white-space:nowrap;opacity:0;filter:blur(14px);transform:translateY(22px);transition:opacity 1.3s ease,filter 1.3s ease,transform 1.3s cubic-bezier(.2,.7,.2,1)}
+.morph > span.on{opacity:1;filter:none;transform:none}
+.morph > span.off{opacity:0;filter:blur(14px);transform:translateY(-22px)}
+.morph > span.is-jp{font-family:var(--jp);font-weight:900;letter-spacing:0;font-size:.8em;align-self:end}
+.hero h1 .line2{display:block;color:var(--ink)}
+.hero-sub{max-width:560px;margin:26px 0 32px;font-size:clamp(16px,1.6vw,19px);color:#d2dbec}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-note{margin-top:18px;font-size:13px;color:var(--mute)}
+.vert{position:absolute;right:max(24px,calc((100vw - 1180px)/2));top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font:500 clamp(18px,2vw,26px)/1.9 var(--jp-serif);letter-spacing:.5em;color:rgba(238,241,247,.78);display:flex;gap:18px;white-space:nowrap}
+.vert small{font-size:.5em;letter-spacing:.3em;color:var(--blue-2)}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:600 11px/1 var(--ui);letter-spacing:.3em;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:"";width:1px;height:42px;background:linear-gradient(var(--blue-2),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* stats */
-.stats { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin-top: 2.5rem; }
-.stat { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.2rem 1.3rem; box-shadow: 0 6px 24px rgba(15,23,42,.05); }
-.stat b { display: block; font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin-bottom: .3rem; }
-.stat span { color: var(--ink-soft); font-size: .95rem; }
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--bg)}
+.track{display:flex;width:max-content;animation:scroll 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{font:800 clamp(32px,4.6vw,58px)/1 var(--display);letter-spacing:-.03em;white-space:nowrap;padding-right:48px;color:transparent;-webkit-text-stroke:1px rgba(238,241,247,.38)}
+.track span.fill{color:var(--ink);-webkit-text-stroke:0}
+.track span.jpw{font-family:var(--jp);font-weight:900;color:var(--blue-2);-webkit-text-stroke:0;font-size:clamp(26px,3.6vw,46px);align-self:center}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* steps */
-.steps { counter-reset: step; margin-top: 2.5rem; }
-.step { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.7rem; position: relative; box-shadow: 0 6px 24px rgba(15,23,42,.05); transition: transform .18s, box-shadow .18s; }
-.step:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(29,78,216,.12); }
-.step::before { counter-increment: step; content: counter(step); display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent-ink); color: #fff; font-weight: 600; font-size: .95rem; margin-bottom: 1rem; }
-.step h3 { margin-bottom: .5rem; }
-.step p { color: var(--ink-soft); font-size: .98rem; }
-.step .free { display: inline-block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ok); font-weight: 600; margin-left: .5rem; vertical-align: middle; }
+/* ---------- sections ---------- */
+section{position:relative}
+.sec{padding:clamp(90px,12vw,160px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:end;margin-bottom:64px}
+.num{font:600 12px/1 var(--ui);letter-spacing:.2em;color:var(--blue-2);margin-bottom:22px;display:inline-flex;gap:12px;align-items:center;border:1px solid rgba(96,165,250,.45);border-radius:999px;padding:9px 16px;background:rgba(59,130,246,.08)}
+.num b{font-weight:800;color:var(--ink)}
+h2{font:800 clamp(32px,4.6vw,62px)/1.08 var(--display);letter-spacing:-.03em;margin:0}
+h2 em{font-style:normal;color:var(--blue-2)}
+.lead{color:var(--soft);font-size:17px;margin:0;max-width:52ch}
+h3{font:700 20px/1.3 var(--display);letter-spacing:-.01em;margin:0 0 10px}
 
-/* services */
-.services { margin-top: 2.5rem; }
-.service { border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; background: #fff; box-shadow: 0 6px 24px rgba(15,23,42,.05); transition: transform .18s, box-shadow .18s, border-color .18s; }
-.service:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(29,78,216,.12); border-color: #c7d7fb; }
-.service h3::before { content: ''; display: block; width: 2rem; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: .8rem; }
-.service h3 { margin-bottom: .4rem; }
-.service p { color: var(--ink-soft); font-size: .97rem; }
-.also { margin-top: 2rem; background: var(--accent-soft); border-radius: 12px; padding: 1.2rem 1.4rem; color: var(--ink-soft); font-size: .97rem; }
-.also b { color: var(--ink); }
+/* promises */
+.promise{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.promise > div{padding:44px 28px;border-right:1px solid var(--line)}
+.promise > div:last-child{border-right:0}
+.big{font:800 clamp(44px,5.4vw,76px)/1 var(--display);letter-spacing:-.05em;margin-bottom:14px}
+.big small{font-size:.3em;letter-spacing:0;color:var(--soft);margin-left:6px;white-space:nowrap}
+.big{white-space:nowrap}
+.big .b{color:var(--blue-2)}
+.promise p{margin:0;color:var(--soft);font-size:15px}
 
-/* pricing */
-.price-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-variant-numeric: tabular-nums; }
-.price-table { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(15,23,42,.06); border-spacing: 0; }
-.price-table th, .price-table td { text-align: left; padding: 1.05rem 1.3rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-.price-table thead th { background: var(--paper-2); }
-.price-table tr:last-child td { border-bottom: 0; }
-.price-table th { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; }
-.price-table td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
-.price-table .free { color: var(--ok); }
-.price-notes { margin-top: 1.5rem; display: grid; gap: .6rem; color: var(--ink-soft); font-size: .97rem; }
-.price-notes li { list-style: none; padding-left: 1.4rem; position: relative; }
-.price-notes li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.why article{background:var(--bg);padding:36px 28px 40px;transition:background .3s}
+.why article:hover{background:var(--panel)}
+.why .k{font:800 14px/1 var(--ui);color:var(--blue-2);margin-bottom:46px;letter-spacing:.1em}
+.why p{color:var(--soft);font-size:15px;margin:0}
 
 /* sample */
-.sample { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; margin-top: 2.5rem; }
-@media (max-width: 860px) { .sample { grid-template-columns: 1fr; } }
-.pane { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; background: #fff; box-shadow: 0 10px 30px rgba(15,23,42,.06); }
-.pane.jp { border-color: #c7d7fb; }
-.pane header { padding: .8rem 1.2rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); background: var(--paper-2); border-bottom: 1px solid var(--line); }
-.pane.jp header { color: var(--accent-ink); background: var(--accent-soft); }
-.pane .body { padding: 1.2rem; font-size: .95rem; line-height: 1.7; color: var(--ink-soft); }
-.pane.jp .body { font-family: var(--font-jp); color: var(--ink); line-height: 1.9; }
-.pane .body p + p { margin-top: .9rem; }
-.pane .body .h { font-weight: 600; color: var(--ink); }
-.notes { margin-top: 1.5rem; display: grid; gap: .7rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
-.note { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; font-size: .92rem; color: var(--ink-soft); box-shadow: 0 6px 24px rgba(15,23,42,.04); }
-.note b { color: var(--ink); display: block; margin-bottom: .2rem; }
+.tabs{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:4px;margin-bottom:30px}
+.tabs button{background:none;border:0;color:var(--soft);font:600 14px/1 var(--ui);padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-selected="true"]{background:var(--blue);color:#fff}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pane{border:1px solid var(--line);border-radius:18px;padding:34px;background:var(--bg-2)}
+.pane.ja{border-color:rgba(96,165,250,.45);background:linear-gradient(180deg,rgba(59,130,246,.09),rgba(59,130,246,.02));box-shadow:0 30px 80px -40px var(--glow)}
+.pane .lab{font:600 12px/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:22px;display:flex;justify-content:space-between}
+.pane.ja .lab{color:var(--blue-2)}
+.pane p{margin:0 0 14px;color:#c9d0dd}
+.pane.ja p{font-family:var(--jp);color:var(--ink);line-height:1.95}
+.pane h4{font:700 16px/1.4 var(--display);margin:22px 0 8px;color:var(--ink)}
+.pane.ja h4{font-family:var(--jp)}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:6px 14px;font-size:15px}
+.kv dt{font:600 11px/2.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.kv dd{margin:0 0 10px}
+.pane.ja .kv dd{font-family:var(--jp)}
+.cnt{font-size:11px;color:var(--mute);margin-left:6px;font-family:var(--display)}
+.notes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.notes div{border-top:1px solid var(--line-2);padding-top:16px}
+.notes b{display:block;font:700 15px/1.35 var(--display);margin-bottom:6px}
+.notes span{color:var(--soft);font-size:14px}
+.sample-panel[hidden]{display:none}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{border:1px solid var(--line);border-radius:18px;padding:36px 30px;background:var(--bg-2);position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.step:hover{border-color:rgba(96,165,250,.5);transform:translateY(-4px)}
+.step::before{counter-increment:s;content:"0" counter(s);font:800 88px/1 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(96,165,250,.35);position:absolute;right:20px;top:14px}
+.tag{display:inline-block;font:700 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-2);border:1px solid rgba(96,165,250,.4);border-radius:999px;padding:7px 11px;margin-bottom:60px}
+.step p{color:var(--soft);font-size:15px;margin:0}
+
+/* services */
+.svc{border-top:1px solid var(--line)}
+.svc-row{display:grid;grid-template-columns:80px 1.1fr 1.6fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding .3s}
+.svc-row:hover{padding-left:12px}
+.svc-row .i{font:600 13px/1 var(--display);color:var(--mute)}
+.svc-row h3{margin:0;font-size:clamp(20px,2.4vw,28px)}
+.svc-row p{margin:0;color:var(--soft);font-size:15px}
+.svc-row:hover .i{color:var(--blue-2)}
+
+/* pricing */
+.price{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:18px;padding:30px 26px;background:var(--bg-2);display:flex;flex-direction:column}
+.card.hl{border-color:rgba(96,165,250,.55);background:linear-gradient(180deg,rgba(59,130,246,.12),var(--bg-2));box-shadow:0 30px 80px -40px var(--glow)}
+.card .t{color:var(--soft);font-size:14px;margin-bottom:22px;min-height:44px}
+.card .p{font:800 40px/1 var(--display);letter-spacing:-.04em;margin-bottom:10px}
+.card .p small{font-size:14px;font-weight:600;color:var(--soft);letter-spacing:0}
+.card .d{color:var(--soft);font-size:14px;margin:0}
+.fine{margin-top:26px;color:var(--soft);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 26px}
+.fine span::before{content:"— ";color:var(--blue-2)}
+
+/* fiverr */
+.fiverr{border:1px solid var(--line);border-radius:22px;padding:44px clamp(26px,4vw,56px);display:flex;justify-content:space-between;align-items:center;gap:30px;background:
+  radial-gradient(70% 120% at 100% 0%,rgba(29,191,115,.12),transparent 60%),var(--bg-2)}
+.fiverr h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:8px}
+.fiverr p{margin:0;color:var(--soft)}
+.btn-fiverr{background:#1dbf73;color:#04120b}
+.btn-fiverr:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px rgba(29,191,115,.6)}
 
 /* about */
-.about .grid-2 { align-items: start; margin-top: 2rem; }
-.about p { color: var(--ink-soft); }
-.about p + p { margin-top: 1rem; }
-.about .how { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; box-shadow: 0 6px 24px rgba(15,23,42,.05); }
-.about .how h3 { margin-bottom: .6rem; }
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.about p{color:var(--soft);font-size:16px}
+.about .quote{font:500 clamp(22px,2.6vw,32px)/1.55 var(--jp-serif);color:var(--ink);border-left:2px solid var(--blue);padding-left:26px;margin:0}
+.about .quote small{display:block;font:500 14px/1.6 var(--body);color:var(--soft);margin-top:18px}
 
 /* faq */
-.faq { margin-top: 2rem; display: grid; gap: .6rem; }
-.faq details { border: 1px solid var(--line); border-radius: 12px; padding: 0 1.3rem; background: #fff; transition: border-color .18s, box-shadow .18s; }
-.faq details[open] { border-color: #c7d7fb; box-shadow: 0 10px 30px rgba(29,78,216,.08); }
-.faq summary { cursor: pointer; padding: 1rem 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; color: var(--accent-ink); font-weight: 600; }
-.faq details[open] summary::after { content: "–"; }
-.faq details p { padding-bottom: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:26px 0;font:700 clamp(17px,1.8vw,21px)/1.4 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;font-size:28px;line-height:1;color:var(--blue-2);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 26px;color:var(--soft);max-width:72ch}
 
 /* contact */
-.contact { background: linear-gradient(135deg, #0b1f4b 0%, #1d4ed8 100%); color: #fff; }
-.contact .eyebrow { color: #bfdbfe; }
-.contact h2 { color: #fff; }
-.contact .lead { color: #dbe7ff; }
-.contact .mail { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
-.contact .addr { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.9rem); color: #fff; text-decoration: none; word-break: break-all; }
-.contact .addr:hover { text-decoration: underline; text-decoration-color: #bfdbfe; }
-.contact .copy { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.5); border-radius: 8px; padding: .5rem .9rem; font: inherit; font-size: .9rem; cursor: pointer; }
-.contact .copy:hover { border-color: #fff; }
-.contact .fine { margin-top: 1.5rem; color: #c7d7fb; font-size: .92rem; }
+.contact{text-align:center;padding:clamp(110px,14vw,190px) 0;overflow:hidden;isolation:isolate}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 50% 50%,rgba(59,130,246,.22),transparent 70%)}
+.contact h2{font-size:clamp(44px,8vw,120px);line-height:.95}
+.contact .lead{margin:28px auto 40px;text-align:center}
+.mail{display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;justify-content:center}
+.mail a.addr{font:700 clamp(18px,2.4vw,28px)/1 var(--display);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:6px;transition:border-color .2s,color .2s}
+.mail a.addr:hover{color:var(--blue-2);border-color:var(--blue-2)}
+.small{color:var(--mute);font-size:13px;margin-top:22px}
 
-footer { padding-block: 2rem; font-size: .88rem; color: var(--ink-muted); }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem; }
+footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--mute);font-size:13px}
+footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer .credits{margin-top:14px;font-size:12px}
 
-/* imagery & corporate layout */
-.hero { min-height: calc(100svh - 64px); display: flex; align-items: center; padding-block: clamp(4rem, 8vw, 6rem); background: linear-gradient(100deg, rgba(5,16,45,.92) 0%, rgba(7,26,66,.84) 42%, rgba(16,52,120,.55) 70%, rgba(29,78,216,.40) 100%), url(img/hero.jpg) center/cover no-repeat; color: #fff; border-bottom: 0; }
-.hero .wrap { width: 100%; }
-.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -0.03em; text-shadow: 0 2px 10px rgba(0,0,0,.45), 0 8px 40px rgba(0,0,0,.35); }
-.hero .lead { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: #eef3ff; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
-.hero .btn { background: #fff; color: var(--accent-ink); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
-.hero .btn:hover { background: #eaf1ff; }
-.hero-card { background: rgba(255,255,255,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.6); box-shadow: 0 20px 60px rgba(7,26,66,.30); }
-.hero h1 { color: #fff; }
-.hero .hero-card { color: var(--ink); }
-.hero .hero-card .en { color: var(--ink-soft); border-left-color: rgba(15,23,42,.18); }
-.hero .lead { color: #dbe7ff; }
-.hero .eyebrow { color: #a8c8ff; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
-.hero .fine { color: #dbe7ff; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
-.hero .btn.secondary { background: rgba(255,255,255,.14); color: #fff; border: 1.5px solid rgba(255,255,255,.75); box-shadow: none; backdrop-filter: blur(6px); }
-.hero .btn.secondary:hover { background: rgba(255,255,255,.26); }
-.trust { background: linear-gradient(90deg, #eaf1ff, #f6f9ff); border-bottom: 1px solid var(--line); }
-.trust .wrap { display: flex; flex-wrap: wrap; gap: .6rem .7rem; padding-block: 1rem; font-size: .86rem; color: var(--ink-soft); font-weight: 500; }
-.trust span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: .35rem .85rem; }
-.trust span::before { content: "\2713"; color: var(--accent-ink); margin-right: .45rem; font-weight: 700; }
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2.5rem; }
-.split.rev { grid-template-columns: 1fr 1fr; }
-.split .stats { margin-top: 0; grid-template-columns: 1fr 1fr; }
-@media (max-width: 800px) { .split, .split.rev { grid-template-columns: 1fr; } .split .stats { grid-template-columns: 1fr; } }
-.figure { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; box-shadow: 0 24px 60px rgba(29,78,216,.18); background: var(--paper-2); }
-.figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.figure.wide { aspect-ratio: 21 / 9; margin-top: 2.5rem; border-radius: 16px; }
-.intro p { color: var(--ink-soft); }
-.intro p + p { margin-top: 1rem; }
-.contact { background: linear-gradient(135deg, rgba(8,24,72,.82), rgba(29,78,216,.70)), url(img/about.jpg) center/cover no-repeat; padding-block: clamp(5rem, 10vw, 8rem); }
-.contact h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
-footer { border-top: 1px solid var(--line); }
-footer a { color: var(--ink-soft); }
-footer .credits { width: 100%; margin: .6rem 0 0; font-size: .78rem; color: var(--ink-muted); }
-footer .credits a { color: var(--ink-muted); }
+/* reveal */
+.rv{opacity:0;transform:translateY(56px);transition:opacity 1.3s cubic-bezier(.16,.84,.3,1),transform 1.3s cubic-bezier(.16,.84,.3,1)}
+.lift{opacity:0;transform:translateY(80px);transition:opacity 1.4s cubic-bezier(.16,.84,.3,1),transform 1.4s cubic-bezier(.16,.84,.3,1)}
+.lift.in{opacity:1;transform:none}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.split .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .18em;margin:0 -.04em -.18em}
+.split .w > span{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.split.in .w > span{transform:none}
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+@media (max-width:980px){
+  .nav ul{display:none}
+  .sec-head,.about{grid-template-columns:1fr;gap:22px}
+  .promise,.why,.price{grid-template-columns:repeat(2,1fr)}
+  .promise > div:nth-child(2){border-right:0}
+  .promise > div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .steps,.ba{grid-template-columns:1fr}
+  .notes{grid-template-columns:repeat(2,1fr)}
+  .svc-row{grid-template-columns:44px 1fr}
+  .svc-row p{grid-column:2}
+  .vert{display:none}
+  .fiverr{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){
+  .wrap{width:calc(100% - 32px)}
+  .promise,.why,.price,.notes{grid-template-columns:1fr}
+  .promise > div{border-right:0;border-bottom:1px solid var(--line)}
+  .promise > div:last-child{border-bottom:0}
+  .nav .btn-sm{padding:9px 14px;font-size:13px}
+  .pane{padding:24px}
+  .hero-inner{padding-bottom:80px}
+  .hero h1{font-size:clamp(40px,11.5vw,56px)}
+  .morph > span.is-jp{font-size:.7em}
+  .morph > span{white-space:normal}
+  .hero-card{display:block;padding:22px 20px}
+  .hero h1{font-size:clamp(30px,9vw,44px)}
+  .hero-cta .btn{width:100%;justify-content:center}
+}
+
+/* persuasion additions */
+.assure{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;margin:20px 0 0;padding:0;font-size:13.5px;color:#c9d3e6}
+.assure li{display:flex;align-items:center;gap:8px}
+.assure li::before{content:"";width:16px;height:16px;border-radius:50%;background:rgba(59,130,246,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%2360a5fa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;flex:none}
+.assure.center{justify-content:center;margin-top:26px}
+.mid-cta{margin-top:48px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border:1px solid var(--line-2);border-radius:18px;padding:22px 28px;background:rgba(59,130,246,.06)}
+.mid-cta p{margin:0;font:700 clamp(18px,2vw,22px)/1.3 var(--display)}
+.cmp{border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.cmp-row{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;border-top:1px solid var(--line)}
+.cmp-row:first-child{border-top:0}
+.cmp-row span{padding:18px 20px;font-size:15px;color:var(--soft)}
+.cmp-row span:first-child{color:var(--ink);font-weight:500}
+.cmp-row.head span{font:700 14px/1.3 var(--ui);color:var(--ink);background:rgba(255,255,255,.02)}
+.cmp-row .us{background:rgba(59,130,246,.10);color:var(--ink)}
+.cmp-row.head .us{background:var(--blue);color:#fff}
+.cmp-row .yes::before{content:"✓ ";color:var(--blue-2);font-weight:700}
+.cmp-row .no::before{content:"✕ ";color:#f87171;font-weight:700}
+.cmp-row .us b{font:800 18px/1 var(--display);color:#fff}
+.pop{position:absolute;top:-12px;left:22px;background:var(--blue);color:#fff;font:700 11px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;padding:7px 11px;border-radius:999px}
+.card{position:relative}
+.guarantee{margin-top:30px;display:flex;gap:26px;align-items:flex-start;border:1px solid rgba(96,165,250,.4);border-radius:20px;padding:30px clamp(22px,3vw,40px);background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(59,130,246,.03))}
+.g-badge{flex:none;width:92px;height:92px;border-radius:50%;border:1px dashed rgba(96,165,250,.7);display:grid;place-items:center;text-align:center;font:800 12px/1.2 var(--ui);letter-spacing:.12em;text-transform:uppercase;color:var(--blue-2);padding:10px}
+.guarantee p{margin:0;color:var(--soft)}
+.btn-lg{padding:17px 28px;font-size:17px}
+@media (max-width:980px){
+  .cmp{overflow-x:auto}
+  .cmp-row{min-width:640px}
+}
+@media (max-width:560px){
+  .guarantee{flex-direction:column}
+  .mid-cta .btn{width:100%;justify-content:center}
+  .mail{flex-direction:column}
+}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="Nihongo Bridge home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#1d4ed8"/><path d="M14 40c6-10 12-10 18 0s12 10 18 0" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="22" r="5" fill="#bfdbfe"/></svg>
-      Nihongo Bridge
-    </a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#how">How it works</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#sample">Sample</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn" href="#contact">Get a free store page</a>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#1d4ed8"/><path d="M14 40c6-10 12-10 18 0s12 10 18 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="22" r="5" fill="#bfdbfe"/></svg>Nihongo Bridge</a>
+    <ul>
+      <li><a href="#sample">Sample</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="#contact">Free store page <span class="arr">→</span></a>
   </div>
 </header>
 
-<main id="top">
-
+<main>
 <section class="hero">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow">Native Japanese localization</p>
-      <h1>Japanese localization for indie games and apps</h1>
-      <p class="lead">Store pages, in-game text and App Store listings, written the way Japanese players actually read — not translated word for word.</p>
-      <div class="cta">
-        <a class="btn" href="#contact">Get a free Japanese store page →</a>
-        <a class="btn secondary" href="#how">See how it works</a>
-      </div>
-      <p class="fine">No cost, no obligation. Most developers hear back within 48 hours.</p>
+  <div class="hero-bg" role="img" aria-label="Tokyo at night"></div>
+  <div class="vert" aria-hidden="true">日本語で、届ける。<small>NIHONGO BRIDGE</small></div>
+  <div class="wrap hero-inner"><div class="hero-card">
+    <p class="eyebrow">Native Japanese localization for indie games &amp; apps</p>
+    <h1><span class="morph" id="morph"><span class="on">Your game</span><span></span></span><span class="line2">in natural Japanese.</span></h1>
+    <p class="hero-sub">Japanese players can tell in one sentence when a game was translated. We rewrite your store page and game text so it reads like it was made in Japan. Your Japanese store page is on us, so you can see the difference before you spend a cent.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Get my free Japanese store page <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#sample">See before &amp; after</a>
     </div>
-    <aside class="hero-card" aria-label="Example of a localized line">
-      <p class="tag">English → Japanese, the way we write it (fictional game)</p>
-      <p class="en">"Open the coziest café on the Moon! Brew, bake and serve the night shift — astronauts, stargazers and the occasional lost robot."</p>
-      <p class="jp">月面にぽつんと建つ、小さなカフェの店主に。<br>真夜中から夜明けまで、宇宙飛行士や迷子のロボットに、あたたかい一杯を。<br><b>星空の下のカフェ、今夜も開店です。</b></p>
-    </aside>
-  </div>
+    <ul class="assure"><li>Reply within 48 hours</li><li>No contract, no card</li><li>Keep the page even if you never hire us</li></ul>
+  </div></div>
+  <div class="scroll-hint">SCROLL</div>
 </section>
 
-<div class="trust" aria-label="At a glance">
-  <div class="wrap">
-    <span>Based in Japan</span>
-    <span>Written by native Japanese speakers</span>
-    <span>Reply within 48 hours</span>
-    <span>Fixed quotes, no minimum fee</span>
-    <span>PayPal invoices with buyer protection</span>
-    <span>40+ indie developers sent a free Japanese store page so far</span>
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span class="fill">Steam store pages</span><span class="jpw">ストアページ</span><span>In-game text</span><span class="jpw">ゲーム内テキスト</span><span class="fill">App Store listings</span><span class="jpw">アプリ説明文</span><span>Patch notes</span><span class="jpw">アップデート情報</span>
+    <span class="fill">Steam store pages</span><span class="jpw">ストアページ</span><span>In-game text</span><span class="jpw">ゲーム内テキスト</span><span class="fill">App Store listings</span><span class="jpw">アプリ説明文</span><span>Patch notes</span><span class="jpw">アップデート情報</span>
   </div>
 </div>
 
-<section id="why">
+<section class="sec" style="padding-bottom:0">
   <div class="wrap">
-    <p class="eyebrow">Why Japanese</p>
-    <h2>A small market on paper. A big one in practice.</h2>
-    <p class="lead" style="margin-top:1rem">Japanese players buy less often than you'd think — and spend more than almost anyone when they do. What decides whether they buy is the text.</p>
-    <div class="split rev">
-      <div class="figure"><img src="img/why.jpg" alt="Katsura River bank with pleasure boats and illuminated building at sunset Kyoto Japan" width="1200" height="800"></div>
-    <div class="stats">
-      <div class="stat"><b>Top 3</b><span>Japan is one of the three largest App Store markets in the world by revenue.</span></div>
-      <div class="stat"><b>Highest-spending</b><span>Japanese Steam players are among the highest-spending players per capita.</span></div>
-      <div class="stat"><b>Native or nothing</b><span>Japanese players strongly prefer native-quality Japanese. Translated-sounding text is a red flag that hurts wishlists, reviews and sales.</span></div>
-      <div class="stat"><b>Store page first</b><span>A Japanese store page alone usually lifts wishlists from Japan noticeably — before a single line of the game is localized.</span></div>
-    </div>
+    <div class="promise">
+      <div class="rv"><div class="big">48<span class="b">h</span></div><p>A real person answers every message within 48 hours, with a fixed quote.</p></div>
+      <div class="rv d1"><div class="big">$0</div><p>Your Japanese store page or App Store listing. Yours to keep, no strings.</p></div>
+      <div class="rv d2"><div class="big">100<span class="b">%</span></div><p>Every line read and rewritten by a native Japanese speaker before it reaches you.</p></div>
+      <div class="rv d3"><div class="big">2–3<small>days</small></div><p>From your store link to a Japanese page you can paste into Steamworks.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section class="sec" id="why">
   <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2>Start free. Pay only if you want more.</h2>
-    <div class="split">
-      <div class="intro">
-        <p>Most developers start with the free Japanese store page and never pay a cent. That is fine with us: a good store page is the best introduction to our work.</p>
-        <p>If you want more, you get a fixed quote before any work begins, a free sample so you can judge the quality first, and the finished files back in the same format you sent.</p>
-      </div>
-      <div class="figure"><img src="img/how.jpg" alt="Itsukushima-jinja torii at sunset, Miyajima, Japan," width="1200" height="800"></div>
+    <div class="sec-head">
+      <div><div class="num"><b>01</b> The hidden cost</div><h2 class="split">Japanese players are looking. <em>Your page isn't talking to them.</em></h2></div>
+      <p class="lead rv">Japan is one of the largest paying audiences on Steam and the App Store. Most of those players won't buy a game they can't read, and they can spot a machine translation instantly.</p>
     </div>
-    <div class="grid grid-3 steps">
-      <div class="step">
-        <h3>Free Japanese store page <span class="free">Free</span></h3>
-        <p>Send us your Steam or App Store link. We write a complete Japanese store page — or an App Store listing with name, subtitle, description and keywords — and send it back. Use it as-is, no credit required.</p>
-      </div>
-      <div class="step">
-        <h3>Free in-game sample <span class="free">Free</span></h3>
-        <p>Considering full localization? Send any 300–500 words of in-game text. We localize them for free so you can judge the quality before spending anything.</p>
-      </div>
-      <div class="step">
-        <h3>Full localization</h3>
-        <p>Send the full text in whatever format you use. You get a fixed quote within 48 hours, and the finished files back in the same format, ready to drop into your build.</p>
-      </div>
+    <div class="why">
+      <article class="rv"><div class="k">01 · SKIPPED</div><h3>English-only pages get scrolled past</h3><p>Many Japanese players filter the store by language. Without Japanese, your game may never appear for them at all.</p></article>
+      <article class="rv d1"><div class="k">02 · DISTRUSTED</div><h3>Machine Japanese reads like a warning</h3><p>Stiff, translated phrasing tells a Japanese player the game was not made with them in mind, and they move on.</p></article>
+      <article class="rv d2"><div class="k">03 · REVIEWED</div><h3>Bad translation stays in your reviews</h3><p>Steam shows review scores by language. Complaints about Japanese text sit on your page long after launch.</p></article>
+      <article class="rv d3"><div class="k">04 · MISSED</div><h3>A real share of players, left on the table</h3><p>Publisher Hooded Horse has reported Japanese players at over 6% of the audience on some titles, well above the platform average.</p></article>
     </div>
   </div>
 </section>
 
-<section id="services">
+<section class="sec" id="sample" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <p class="eyebrow">What we localize</p>
-    <h2>Everything a Japanese player reads before and after they buy.</h2>
-    <div class="figure wide"><img src="img/services.jpg" alt="Gamer Controller" width="1200" height="800"></div>
-    <div class="grid grid-2 services">
-      <div class="service"><h3>Steam store pages</h3><p>Restructured the way Japanese store pages flow — a one-line summary first, feature sections, the wishlist call-to-action at the end — not just translated.</p></div>
-      <div class="service"><h3>In-game text</h3><p>Dialogue, items, UI, tutorials, achievements. Humor and puns are rewritten so they land in Japanese instead of dying in translation.</p></div>
-      <div class="service"><h3>App Store and Google Play listings</h3><p>Name, subtitle, description and a keyword set, written within Apple's character limits and without wasting keywords on words already in your title.</p></div>
-      <div class="service"><h3>Updates and patch notes</h3><p>A small flat fee per update, so your Japanese stays current every time you ship.</p></div>
-      <div class="service"><h3>Japanese community support</h3><p>We read your Japanese reviews and comments, tell you what they say, and draft replies in your voice.</p></div>
-      <div class="service"><h3>Fonts, line-breaking and layout advice</h3><p>Which pixel fonts include kanji, how Japanese word-wrap works, where your text boxes will break. The things that trip up a first Japanese release.</p></div>
+    <div class="sec-head">
+      <div><div class="num"><b>02</b> Before → after</div><h2 class="split">Don't take our word for it. <em>Read it.</em></h2></div>
+      <p class="lead rv">Two samples for fictional products we made up. On the left, what a developer wrote. On the right, what a Japanese player actually reads. Notice it is not a word-for-word copy.</p>
     </div>
-    <p class="also"><b>Not a game or an app?</b> We also help with Kickstarter pages, software and SaaS interfaces, websites, board game rules and documentation. If Japanese readers will see it, ask us.</p>
-  </div>
-</section>
+    <div class="tabs rv" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="steam">Steam store page</button>
+      <button role="tab" aria-selected="false" data-tab="app">App Store listing</button>
+    </div>
 
-<section id="pricing">
-  <div class="wrap">
-    <p class="eyebrow">Pricing</p>
-    <h2>Simple, transparent pricing.</h2>
-    <table class="price-table">
-      <thead><tr><th>Service</th><th>Price</th></tr></thead>
-      <tbody>
-        <tr><td>Japanese store page or App Store listing</td><td class="free">Free</td></tr>
-        <tr><td>In-game sample (up to 500 words)</td><td class="free">Free</td></tr>
-        <tr><td>Full localization</td><td>USD 0.05 per source word</td></tr>
-        <tr><td>Updates and patch notes</td><td>from USD 20 per update</td></tr>
-      </tbody>
-    </table>
-    <ul class="price-notes">
-      <li>A 10,000-word game is about USD 500. A typical mobile app's UI is often under USD 200.</li>
-      <li>50% to start, 50% on delivery, via PayPal. Milestone payments available for larger projects.</li>
-      <li>No minimum fee. No rush surcharge.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="sample">
-  <div class="wrap">
-    <p class="eyebrow">Sample</p>
-    <h2>What "written for Japanese players" looks like.</h2>
-    <p class="lead" style="margin-top:1rem">An excerpt from a store page for a fictional game we made up, <em>Moonlight Café</em>. The English on the left is what a developer wrote; the Japanese on the right is what a Japanese player would read.</p>
-    <div class="sample">
-      <div class="pane">
-        <header>Original (English)</header>
-        <div class="body">
+    <div class="sample-panel" id="tab-steam">
+      <div class="ba">
+        <div class="pane rv"><div class="lab"><span>English · original</span><span>Moonlight Café</span></div>
           <p>Ready to open the coziest café on the Moon? Grab the free demo and brew your first cup under the stars. Wishlist now!</p>
-          <p><span class="h">Serve the night shift</span><br>Astronauts, stargazers and the occasional lost robot drop by between midnight and dawn. Learn what each regular likes and keep them coming back.</p>
-          <p><span class="h">Grow your own ingredients</span><br>Tend a tiny greenhouse in the crater, harvest moon-berries and lunar mint, and invent recipes nobody on Earth has ever tasted.</p>
+          <h4>Serve the night shift</h4><p>Astronauts, stargazers and the occasional lost robot drop by between midnight and dawn. Learn what each regular likes and keep them coming back.</p>
+          <h4>Grow your own ingredients</h4><p>Tend a tiny greenhouse in the crater, harvest moon-berries and lunar mint, and invent recipes nobody on Earth has ever tasted.</p>
+        </div>
+        <div class="pane ja rv d1"><div class="lab"><span>Japanese · Nihongo Bridge</span><span>ムーンライト・カフェ</span></div>
+          <p>『Moonlight Café』は、月面にぽつんと建つ小さなカフェを切り盛りする、まったりカフェ経営ゲームです。<br>営業時間は、真夜中から夜明けまで。</p>
+          <h4>■ 夜勤のお客さんを、もてなそう</h4><p>宇宙飛行士、天体観測が趣味の常連、たまに迷い込むロボット。<br>ひとりひとりの好みを覚えて、「また来たい」と思ってもらえる店にしていきましょう。</p>
+          <h4>■ 食材は、クレーターの温室から</h4><p>小さな温室で月イチゴや月面ミントを育てて、地球では味わえないメニューを考えましょう。</p>
         </div>
       </div>
-      <div class="pane jp">
-        <header>Japanese (Nihongo Bridge)</header>
-        <div class="body">
-          <p>『Moonlight Café』は、月面にぽつんと建つ小さなカフェを切り盛りする、まったりカフェ経営ゲームです。<br>営業時間は、真夜中から夜明けまで。<br>星を眺めに来た人や迷子のロボットに、あたたかい一杯を出してあげましょう。</p>
-          <p><span class="h">■ 夜勤のお客さんを、もてなそう</span><br>宇宙飛行士、天体観測が趣味の常連、たまに迷い込むロボット。<br>ひとりひとりの好みを覚えて、「また来たい」と思ってもらえる店にしていきましょう。</p>
-          <p><span class="h">■ 食材は、クレーターの温室から</span><br>小さな温室で月イチゴや月面ミントを育てて、地球では味わえないメニューを考えましょう。</p>
-          <p><span class="h">■ 体験版、配信中！</span><br>まずは無料の体験版で、星空の下の一杯をどうぞ。<br>気に入ったら、ウィッシュリストへの登録をお願いします。</p>
-        </div>
+      <div class="notes">
+        <div class="rv"><b>Opens with what the game is</b><span>Japanese players decide in the first line. The English version opened with a sales pitch.</span></div>
+        <div class="rv d1"><b>■ sections, one sentence per line</b><span>The layout Japanese store pages use. Pastes into Steamworks as-is.</span></div>
+        <div class="rv d2"><b>Ask comes last</b><span>The demo and wishlist come after the player knows what they are getting.</span></div>
+        <div class="rv d3"><b>Words players use</b><span>常連 (regulars), もてなす (to welcome a guest). Not dictionary words.</span></div>
       </div>
     </div>
-    <div class="notes">
-      <div class="note"><b>Opens with what the game is</b>Japanese store pages start with a one-line summary. The English version jumped straight to the demo.</div>
-      <div class="note"><b>■ sections, one sentence per line</b>The format Japanese players expect — and it pastes into Steamworks as-is.</div>
-      <div class="note"><b>Call-to-action moved to the end</b>Demo and wishlist come after the player knows what the game is.</div>
-      <div class="note"><b>Real vocabulary</b>常連 (regulars), もてなす (to welcome a guest) — the words Japanese players use, not dictionary translations.</div>
+
+    <div class="sample-panel" id="tab-app" hidden>
+      <div class="ba">
+        <div class="pane"><div class="lab"><span>English · original</span><span>Daily Bloom</span></div>
+          <dl class="kv"><dt>Name</dt><dd>Daily Bloom: Habit Tracker</dd><dt>Subtitle</dt><dd>Build routines, one day at a time</dd><dt>Description</dt><dd>Daily Bloom turns your goals into small daily habits. Check them off, watch your garden grow, and keep your streak alive with gentle reminders. No ads, no pressure, just steady progress.</dd><dt>Keywords</dt><dd>habit, routine, tracker, streak, goals, productivity, self care</dd></dl>
+        </div>
+        <div class="pane ja"><div class="lab"><span>Japanese · Nihongo Bridge</span><span>App Store</span></div>
+          <dl class="kv"><dt>Name</dt><dd>Daily Bloom - 習慣トラッカー<span class="cnt">19/30</span></dd><dt>Subtitle</dt><dd>毎日の小さな積み重ねを、育てる<span class="cnt">15/30</span></dd><dt>Description</dt><dd>目標を、毎日続けられる小さな習慣に。<br>チェックするたびに庭が育ち、やさしいリマインダーが継続を後押しします。<br>広告なし、プレッシャーなし。着実に前へ進むためのアプリです。</dd><dt>Keywords</dt><dd>習慣,ルーティン,継続,目標,記録,自己管理,セルフケア,朝活<span class="cnt">31/100</span></dd></dl>
+        </div>
+      </div>
+      <div class="notes">
+        <div><b>Within Apple's limits</b><span>Name and subtitle under 30 characters, keywords under 100.</span></div>
+        <div><b>No wasted keywords</b><span>Words already in the name are not repeated, so every character can rank.</span></div>
+        <div><b>Search terms people type</b><span>朝活 (morning routine) and 継続 (keeping it up) are real Japanese searches.</span></div>
+        <div><b>Calm, not pushy</b><span>Japanese app pages win trust with a warm, reassuring tone.</span></div>
+      </div>
+    </div>
+    <div class="mid-cta rv"><p>Want to see your own game like this?</p><a class="btn btn-primary" href="#contact">Get my free Japanese store page <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<section class="sec" id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="num"><b>03</b> Your options</div><h2 class="split">Three ways to get Japanese. <em>One that fits an indie budget.</em></h2></div>
+      <p class="lead rv">Machine translation is cheap but shows. Agencies are excellent but priced for big studios. We sit in between, on purpose.</p>
+    </div>
+    <div class="cmp rv">
+      <div class="cmp-row head"><span></span><span>Machine translation</span><span>Large agency</span><span class="us">Nihongo Bridge</span></div>
+      <div class="cmp-row"><span>Reads like it was written in Japanese</span><span class="no">No</span><span class="yes">Yes</span><span class="us yes">Yes</span></div>
+      <div class="cmp-row"><span>Typical cost per word</span><span>Free</span><span>Often $0.07–0.14+</span><span class="us"><b>$0.05</b></span></div>
+      <div class="cmp-row"><span>Free sample before you pay</span><span>—</span><span class="no">Rarely</span><span class="us yes">Store page + 500 words</span></div>
+      <div class="cmp-row"><span>Minimum order</span><span>—</span><span>Often required</span><span class="us yes">None</span></div>
+      <div class="cmp-row"><span>Who answers your email</span><span>Nobody</span><span>Account manager</span><span class="us yes">The person writing your text</span></div>
     </div>
   </div>
 </section>
 
-<section id="about" class="about">
+<section class="sec" id="how" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">About</p>
-    <h2>Who we are</h2>
-    <div class="split">
-      <div class="intro">
-        <p>Nihongo Bridge is a localization studio based in Japan. We write Japanese for independent developers who want Japanese players to feel that the game was made for them, not just translated for them.</p>
-        <p>We keep the studio deliberately small. Every line that goes out is read, and usually rewritten, by a native speaker. That is why the Japanese reads like it was written in Japanese, and why you get answers from a person, usually the same day.</p>
-      </div>
-      <div class="figure"><img src="img/about.jpg" alt="12-Chureito-pagoda-and-Mount-Fuji-Japan (" width="1200" height="800"></div>
+    <div class="sec-head">
+      <div><div class="num"><b>04</b> What happens next</div><h2 class="split">One email. <em>No sales calls.</em></h2></div>
+      <p class="lead rv">Here is exactly what happens after you send your link, so there are no surprises. You can stop at any step.</p>
     </div>
-    <div class="grid grid-2" style="margin-top:1.5rem">
-      <div class="how">
-        <h3>How we work</h3>
-        <p>We use AI tools for a first draft, then every line is reviewed and rewritten by a native speaker. That is how we keep prices low without the translated-sounding Japanese that machine translation alone produces.</p>
-        <p style="margin-top:.8rem">We say this openly because developers deserve to know how their text is made.</p>
-      </div>
-      <div class="how">
-        <h3>What you can expect</h3>
-        <p>A reply from a person within 48 hours. A fixed quote and delivery date before any work starts. Files back in the format you sent. And if something reads wrong after release, we fix it at no charge.</p>
-      </div>
+    <div class="steps">
+      <div class="step rv"><span class="tag">Day 0</span><h3>You send your store link</h3><p>Steam, App Store or Google Play. One line is enough. A person replies within 48 hours.</p></div>
+      <div class="step rv d1"><span class="tag">Day 2–3 · Free</span><h3>You get your Japanese page</h3><p>A complete Japanese store page or App Store listing, ready to paste. Use it as-is. No credit, no follow-up pressure.</p></div>
+      <div class="step rv d2"><span class="tag">Only if you want</span><h3>Full game, fixed price</h3><p>Try 500 words of in-game text free, then get a fixed quote. Delivery in 1–2 weeks, in the same file format you sent.</p></div>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<section class="sec" id="services" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">FAQ</p>
-    <h2>Questions developers ask us</h2>
-    <div class="faq">
+    <div class="sec-head">
+      <div><div class="num"><b>05</b> Services</div><h2 class="split">Everything a Japanese player <em>reads.</em></h2></div>
+      <p class="lead rv">Before they buy, while they play, and every update after. Not a game or an app? We also handle Kickstarter pages, software, websites and board game rules.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-row rv"><span class="i">01</span><h3>Steam store pages</h3><p>Rebuilt the way Japanese store pages flow, so players understand your game in the first line and reach the wishlist button convinced.</p></div>
+      <div class="svc-row rv"><span class="i">02</span><h3>In-game text</h3><p>Dialogue, items, UI, tutorials, achievements. Character voices stay distinct, and jokes are rewritten so they still land.</p></div>
+      <div class="svc-row rv"><span class="i">03</span><h3>App Store &amp; Google Play</h3><p>Name, subtitle, description and keywords within Apple's limits, built around what Japanese users actually search for.</p></div>
+      <div class="svc-row rv"><span class="i">04</span><h3>Updates &amp; patch notes</h3><p>A small flat fee per update, so Japanese players never feel left behind after launch.</p></div>
+      <div class="svc-row rv"><span class="i">05</span><h3>Fonts &amp; layout check</h3><p>Which fonts include kanji, where lines should break, which text boxes will overflow. The things that break a first Japanese release.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing" style="background:var(--bg-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="num"><b>06</b> Pricing</div><h2 class="split">Know the price <em>before you start.</em></h2></div>
+      <p class="lead rv">A 10,000-word game is about USD 500. A typical mobile app's interface is often under USD 200. You always get a fixed quote first.</p>
+    </div>
+    <div class="price">
+      <div class="card rv"><div class="t">Japanese store page or App Store listing</div><div class="p">Free</div><p class="d">Delivered in 2–3 days. Yours to keep.</p></div>
+      <div class="card rv d1"><div class="t">In-game sample, up to 500 words</div><div class="p">Free</div><p class="d">Judge the quality on your own text.</p></div>
+      <div class="card hl rv d2"><div class="pop">Main service</div><div class="t">Full localization</div><div class="p">$0.05<small> / source word</small></div><p class="d">Glossary, two revision rounds and an in-build check included.</p></div>
+      <div class="card rv d3"><div class="t">Updates and patch notes</div><div class="p">$20<small> + / update</small></div><p class="d">Keep your Japanese current.</p></div>
+    </div>
+    <div class="guarantee rv">
+      <div class="g-badge">Our promise</div>
+      <div><h3>You only pay once you've seen our work.</h3><p>The store page and the 500-word sample are free. For full projects you pay 50% to start and 50% on delivery, via PayPal with buyer protection. Two rounds of revisions are included, and if a Japanese player flags a line after release, we fix it at no charge.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="fiverr rv">
+      <div><h3>Prefer to order through a marketplace?</h3><p>The same service is on Fiverr, with Fiverr's payment protection on every order.</p></div>
+      <a class="btn btn-fiverr" href="https://www.fiverr.com/nihongo_bridge/translate-your-game-or-app-into-natural-japanese" target="_blank" rel="noopener">Order on Fiverr <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="num"><b>07</b> Who you'll work with</div>
+      <h2 class="split" style="margin-bottom:28px">A small studio <em>in Japan.</em></h2>
+      <p>Nihongo Bridge writes Japanese for independent developers who want Japanese players to feel the game was made for them, not just translated for them.</p>
+      <p>We use AI tools for a first draft, then every line is reviewed and rewritten by a native speaker. That is how we keep prices within reach of indie budgets without the translated feel. We tell you this upfront because you deserve to know how your text is made.</p>
+      <p>We stay small on purpose. The person who rewrites your text is the person who answers your email.</p>
+    </div>
+    <p class="quote rv">翻訳ではなく、<br>はじめから日本語で<br>書かれたように。<small>Not translated. Written as if it had been Japanese from the start.</small></p>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="num"><b>08</b> FAQ</div><h2 class="split">The questions <em>you're probably asking.</em></h2></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>What's the catch with the free store page?</summary><p>There isn't one. The free page is how developers get to know our work. Some come back for their full game. Many don't, and that's fine. You keep the page either way, and we won't chase you.</p></details>
+      <details><summary>Is this just machine translation?</summary><p>No. AI writes a first draft only. A native speaker then reads and rewrites every line, including tone, character voice and wordplay. You will never receive raw machine output.</p></details>
+      <details><summary>What if I don't like the result?</summary><p>Tell us what feels off and we'll revise it. Two rounds of revisions are included. And since the store page and sample are free, you can judge the quality before paying anything.</p></details>
       <details><summary>What file formats do you accept?</summary><p>Anything: CSV, JSON, XLSX, PO, Unity or Unreal exports, Google Sheets, or plain text. You get the same format back, with the structure untouched.</p></details>
-      <details><summary>How fast is it?</summary><p>Store pages within 2–3 days. Full localization is typically 1–2 weeks for 10,000 words. We confirm the delivery date with your quote.</p></details>
-      <details><summary>Do you use AI?</summary><p>Yes, for the first draft only. Every line is then reviewed and rewritten by a native speaker before it reaches you. You will never receive raw machine output.</p></details>
-      <details><summary>Why is it so affordable?</summary><p>Two reasons. We use AI for the first draft, which removes the slowest part of the work, and we are a small studio in Japan with no agency overhead or project managers. The native speaker who rewrites your text is the same person who answers your email.</p></details>
-      <details><summary>How do I pay?</summary><p>PayPal. 50% to start, 50% on delivery. Larger projects can be split into milestones.</p></details>
-      <details><summary>Can you help after launch?</summary><p>Yes. Patch notes, new content, and reading your Japanese reviews so you know what players are saying.</p></details>
-      <details><summary>Is the free store page really free?</summary><p>Yes. No credit, no obligation, no follow-up pressure. We'd rather you see the quality than take our word for it.</p></details>
+      <details><summary>How fast is it?</summary><p>Store pages in 2–3 days. Full localization is typically 1–2 weeks for 10,000 words. We confirm the date with your quote.</p></details>
+      <details><summary>How do I pay?</summary><p>PayPal invoice, 50% to start and 50% on delivery. Larger projects can be split into milestones. You can also order through Fiverr.</p></details>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h2>Send us your store link.</h2>
-    <p class="lead" style="margin-top:1rem">Email a link to your Steam page or App Store listing. We'll reply within 48 hours with a free Japanese version — and that's it, unless you want more.</p>
+    <div class="num" style="justify-content:center"><b>09</b> Start here</div>
+    <h2 class="split">See your game <em>in Japanese.</em></h2>
+    <p class="lead">Send one line with your Steam or App Store link. In 2–3 days you'll have a Japanese store page ready to paste into Steamworks. Launching soon or joining a Steam sale? Now is the right time.</p>
     <div class="mail">
-      <a class="addr" id="mail-link" href="mailto:nihongobridge.jp@gmail.com?subject=Free%20Japanese%20store%20page">nihongobridge.jp@gmail.com</a>
-      <button class="copy" id="copy-btn" type="button">Copy address</button>
+      <a class="btn btn-primary btn-lg" href="mailto:nihongobridge.jp@gmail.com?subject=Free%20Japanese%20store%20page&amp;body=Hi!%20Here%20is%20my%20store%20link%3A%20">Email my store link <span class="arr">→</span></a>
+      <a class="addr" href="mailto:nihongobridge.jp@gmail.com">nihongobridge.jp@gmail.com</a>
+      <button class="btn btn-ghost btn-sm" id="copy" type="button">Copy address</button>
     </div>
-    <p class="fine">A member of our team will reply personally within 48 hours. No automated responses, no sales calls. We use your email only to reply to you, and never share it.</p>
+    <ul class="assure center"><li>A person replies within 48 hours</li><li>No contract, no card</li><li>We never share your email</li></ul>
   </div>
 </section>
-
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Nihongo Bridge · Japan · <a href="mailto:nihongobridge.jp@gmail.com">nihongobridge.jp@gmail.com</a></span>
-    <span>Japanese localization for indie games and apps</span>
-    <p class="credits">Photos: <a href="https://commons.wikimedia.org/wiki/File:Queensboro_Bridge_New_York_October_2016_003.jpg">King of Hearts</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>), <a href="https://commons.wikimedia.org/wiki/File:Katsura_River_bank_with_pleasure_boats_and_illuminated_building_at_sunset_Kyoto_Japan.jpg">Basile Morin</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>), <a href="https://commons.wikimedia.org/wiki/File:Itsukushima-jinja_torii_at_sunset,_Miyajima,_Japan,_20240816_1812_4144.jpg">Jakubhal</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>), via Wikimedia Commons.</p>
+    <div class="row"><span>© 2026 Nihongo Bridge · Japan</span><span>Japanese localization for indie games and apps</span></div>
+    <p class="credits">Photo: <a href="https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan_(Night).jpg">David Kernan</a> (CC BY 4.0), via Wikimedia Commons.</p>
   </div>
 </footer>
 
 <script>
-(function () {
-  var btn = document.getElementById('copy-btn');
-  var addr = document.getElementById('mail-link');
-  if (!btn || !addr) return;
-  btn.addEventListener('click', function () {
-    var text = addr.textContent.trim();
-    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy address'; }, 1800); };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { window.getSelection().selectAllChildren(addr); });
-    } else {
-      window.getSelection().selectAllChildren(addr);
-    }
+(() => {
+  const reduce = false;
+
+  // header background on scroll
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', scrollY > 30);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // English -> Japanese morphing headline
+  const pairs = [["Your game","あなたのゲームを、"],["Your store page","ストアページを、"],["Your app","あなたのアプリを、"]];
+  const box = document.getElementById('morph');
+  const layers = box.querySelectorAll('span');
+  let cur = 0, i = 0, jp = false;
+  setInterval(() => {
+    jp = !jp;
+    if (!jp) i = (i + 1) % pairs.length;
+    const next = layers[1 - cur], prev = layers[cur];
+    next.textContent = jp ? pairs[i][1] : pairs[i][0];
+    next.classList.toggle('is-jp', jp);
+    next.classList.remove('off'); void next.offsetWidth;
+    prev.classList.remove('on'); prev.classList.add('off');
+    next.classList.add('on');
+    cur = 1 - cur;
+  }, 3600);
+
+  // split headings into words for the reveal
+  document.querySelectorAll('.split').forEach(h => {
+    const walk = node => {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3){
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)){ frag.append(part); return; }
+            const w = document.createElement('span'); w.className = 'w';
+            const s = document.createElement('span'); s.textContent = part; w.append(s); frag.append(w);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    };
+    walk(h);
+    h.querySelectorAll('.w > span').forEach((s, k) => s.style.transitionDelay = (k * 0.06) + 's');
+  });
+
+  // scroll reveal
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.08, rootMargin:'0px 0px -4% 0px'});
+  document.querySelectorAll('.sec > .wrap, .marquee').forEach(n => n.classList.add('lift'));
+  document.querySelectorAll('.rv,.split,.lift').forEach(n => io.observe(n));
+
+  // sample tabs
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+    document.querySelectorAll('.sample-panel').forEach(p => p.hidden = p.id !== 'tab-' + b.dataset.tab);
+  }));
+
+  // copy email
+  const c = document.getElementById('copy');
+  c.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText('nihongobridge.jp@gmail.com'); c.textContent = 'Copied ✓'; }
+    catch { c.textContent = 'nihongobridge.jp@gmail.com'; }
+    setTimeout(() => c.textContent = 'Copy address', 2200);
   });
 })();
 </script>
